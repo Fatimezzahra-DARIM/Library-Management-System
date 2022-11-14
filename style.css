@@ -1,0 +1,20 @@
+.button {
+  background-color: #DCC18A; 
+  border: none;
+  color:#808080;
+  padding: 15px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 20px;
+
+}
+.titre{
+    color: #808080;
+    font-family: 'Inter'; 
+}
+body {
+  background-image: linear-gradient(to right,#FFFFFF,#808080) ;
+  opacity:inherit;
+}
