@@ -1,4 +1,4 @@
-.button {
+.btn {
   background-color: #DCC18A; 
   border: none;
   color:#808080;
@@ -6,9 +6,9 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  /* font-size: 16px; */
+  font-weight: bold;
   border-radius: 20px;
-
 }
 .titre{
     color: #808080;
@@ -17,4 +17,31 @@
 body {
   background-image: linear-gradient(to right,#FFFFFF,#808080) ;
   opacity:inherit;
+}
+main{
+margin: auto;
+display: block;
+background: rgba( 238, 207, 207, 0.2 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 7.5px );
+-webkit-backdrop-filter: blur( 7.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.logo{
+  background-color: #DCC18A; 
+  border: none;
+  color:#808080;
+  padding: 6px 80px;
+  /* text-align: center; */
+  text-decoration: none;
+  /* display: inline-block; */
+  /* font-size: 16px; */
+  font-weight: bold;
+  border-radius: 20px;
+  margin-top: 5px;
+}
+.form-control{
+  border-radius: 10px;
+border-color: #DCC18A;
 }
