@@ -1,3 +1,6 @@
+<?php 
+include('./connex.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,26 +31,31 @@
                               <h2><strong>Sign Up</strong></h2>
                            </div>
                         </div>
-                        <form action="#" name="registration">
+                        <form action="#" name="registration" id="form">
                            <div class="form-group">
                               <label for="exampleInputEmail1">Name:</label>
-                              <input type="text"  name="firstname" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="">
+                              <input type="text"  name="firstname" class="form-control" id="name" aria-describedby="emailHelp" placeholder="">
+                               <small> Error message </small>
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">Phone Number:</label>
-                              <input type="text"  name="lastname" class="form-control" id="lastname" aria-describedby="emailHelp" placeholder="">
+                              <input type="text"  name="phoneNumber" class="form-control" id="phoneNumber" aria-describedby="emailHelp" placeholder="">
+                               <small> Error message </small>
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">Email address:</label>
                               <input type="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="">
+                               <small> Error message </small>
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">Password:</label>
                               <input type="password" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="">
+                               <small> Error message </small>
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">Confirm Password:</label>
-                              <input type="password" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="">
+                              <input type="checkPassword" name="checkPassword" id="checkPassword"  class="form-control" aria-describedby="emailHelp" placeholder="">
+                               <small> Error message </small>
                            </div>
                            <div class="col-md-12 text-center mb-3">
                               <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm"><strong>Submit</strong></button>
@@ -64,6 +72,7 @@
 		</div>
       </div>   
                      </main>
+                      <script src="script.js"></script>
     </body>
 			
                      <!-- /::::::::::::::::::::::::

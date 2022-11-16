@@ -23,7 +23,7 @@
         </div >
          <div class="w-100 d-flex justify-content-center mb-3"> 
             <button class="btn mx-4"><a href="signIn.html" id="signip">Sign In</a> </button>
-            <button class="btn"><a href="sign.html" id="signup">Sign Up</a></button> 
+            <button class="btn"><a href="signUp.php" id="signup">Sign Up</a></button> 
         </div>
      </main>
  
