@@ -45,9 +45,8 @@
     <section class="col-10">  
         <div class="d-flex justify-content-between p-3">
             <h3>List of Books</h3>   
-        <button type="button" class="btn p-2 rounded-4" data-toggle="modal" data-target="#exampleModal"><i
-                    class="bi bi-plus"></i> Add Task</button></div>
-                    
+         <button type="button" class="btn p-2 rounded-4" data-bs-toggle="modal" data-bs-target="#exampleModal "><i
+                    class="bi bi-plus"></i> Add Book</button></div>
         <div>
 
         <table class=" table align-middle mb-0 bg-white text-center ">
@@ -155,6 +154,61 @@
         </table>
     </div>
     </section>
+    <!-- Modal -->
+    <div id="addBook">
+        <div class="modal fade" id="exampleModal" onclick="" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Book</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="book" name="book" enctype="multipart/form-data" action="script.php" method="POST">
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Title</label>
+                                <input type="title" class="form-control" name="title" id="title-addTaskk">
+                            </div>
+                            <!--radios  -->
+    
+    
+                            <!-- select2 -->
+                            <div class="form-control mb-3">
+                                <label for="title" class="form-label">IMG</label>
+                                <label for="file-upload" class="custom-file-upload ">
+    
+                                </label>
+                                <input id="file-upload" name="img" type="file">
+                            </div>
+                            <div class="mb-3">
+                                <label for="title" class="form-label">quantity</label>
+                                <input type="title" class="form-control" name="quantity">
+                            </div>
+                            <!--  -->
+    
+    
+                            <!-- <div class="form-group">
+                                <label for="date" class="form-label ">Discription</label>
+                                <label for="exampleFormControlTextarea1"></label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                    name="description"></textarea>
+                            </div> -->
+                            <div class="modal-footer">
+    
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                    id="reset">Close</button>
+                                <button type="submit" class="btn btn-primary" id="send" name="save">Save</button>
+                            </div>
+                        </form>
+                    </div>
+    
+    
+                </div>
+            </div>
+        </div>
+    
+    </div>
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

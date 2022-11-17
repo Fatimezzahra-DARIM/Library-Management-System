@@ -69,4 +69,9 @@ a:hover{
 .logonav{
   height: 100vh;
 }
+.cards{
+  display: flex;
+  flex-wrap:wrap;
+  
+}
 
