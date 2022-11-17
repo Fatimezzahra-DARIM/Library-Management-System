@@ -1,3 +1,30 @@
+<?php 
+include('./connex.php');
+// include('./script.php');
+if (isset($_POST['submit'])) {
+   $name = mysqli_real_escape_string($conn, $_POST['fName']);
+   $phone = mysqli_real_escape_string($conn, $_POST['phoneNumber']);
+   $Email = mysqli_real_escape_string($conn, $_POST['email']);
+   $pass = $_POST['password'];
+   $pasrepeat = $_POST['checkPassword'];
+   $select = "SELECT * FROM admin WHERE Email = '$Email' ";
+   $result = mysqli_query($conn, $select);
+
+   if (mysqli_num_rows($result) > 0) {
+      $error[] = 'user already exist !! ';
+   } else {
+      if ($pass != $pasrepeat) {
+         $error[] = 'password not matched !!';
+      } else {
+         $insert = "INSERT INTO admin (adminName,phoneNumber,Email,PASSWORD) VALUES ('$name','$phone','$Email','$pass')";
+         $query=mysqli_query($conn, $insert);
+         if(!$query){
+            echo 'hiii';
+         }
+      };
+   };
+};
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,29 +55,34 @@
                               <h2><strong>Sign Up</strong></h2>
                            </div>
                         </div>
-                        <form action="#" name="registration">
+                        <form  name="registration" id="form" method="post" action="signUp.php">
                            <div class="form-group">
                               <label for="exampleInputEmail1">Name:</label>
-                              <input type="text"  name="firstname" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="">
+                              <input type="text"  name="fName" class="form-control" id="name" aria-describedby="emailHelp" placeholder="">
+                             
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">Phone Number:</label>
-                              <input type="text"  name="lastname" class="form-control" id="lastname" aria-describedby="emailHelp" placeholder="">
+                              <input type="text"  name="phoneNumber" class="form-control" id="phoneNumber" aria-describedby="emailHelp" placeholder="">
+                             
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">Email address:</label>
                               <input type="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="">
+                              
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">Password:</label>
-                              <input type="password" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="">
+                              <input type="text" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="">
+                            
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">Confirm Password:</label>
-                              <input type="password" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="">
+                              <input type="text" name="checkPassword" id="checkPassword"  class="form-control" aria-describedby="emailHelp" placeholder="">
+                            
                            </div>
                            <div class="col-md-12 text-center mb-3">
-                              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm"><strong>Submit</strong></button>
+                              <button type="submit" name="submit" class=" btn btn-block mybtn btn-primary tx-tfm"><strong>Submit</strong></button>
                            </div>
                            <div class="col-md-12 ">
                               <div class="form-group">
@@ -63,7 +95,11 @@
                       </div>
 		</div>
       </div>   
+
+
+      
                      </main>
+                      <script src="script.js"></script>
     </body>
 			
                      <!-- /::::::::::::::::::::::::
