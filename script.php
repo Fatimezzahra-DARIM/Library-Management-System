@@ -52,6 +52,28 @@ function addBook(){
         echo "<h1>4aa 9lbii 3la chi 7el a7nintii hzk lma </h1>";
     }
 }
+function updateBook(){
+    global $conn;
+    if(isset($_POST['update'])){
+        $id=$_GET['id'];
+        // echo "center" ;
+        $title=$_POST['updatetitle'];
+        $updateAuthor=$_POST['updateAuthor'];
+        $updatePublisherName=$_POST['updatePublisherName'];
+        $image=$_POST['image'];
+       $req= "UPDATE `books` SET `bookTitle`='$title',`author`='$updateAuthor',`publisherName`='$updatePublisherName',`image`='$image' WHERE `id`='$id'";
+        $res=mysqli_query($conn,$req);
+        if($res){
+        header('location: books.php');
+         echo "done";
+        }else{
+            echo "<br>Error updating record: " . mysqli_error($conn);
+
+        }
+        //echo "end" ;
+
+    }
+}
 function deleteBook()
 {
     //CODE HERE
@@ -100,10 +122,10 @@ function displayBook()
 
                         <td>'. $publisherName . '</td>
                         <td>
-                            <button type="button" class="btn p-2 btn-sm btn-rounded" data-mdb-ripple-color="dark">
-                                Edit
-                            </button>
-                            <a class="btn p-2 btn-sm btn-rounded" href="script.php?id=' . $id . '">
+                           
+                               <a class="btn p-2 btn-sm btn-rounded" onClick="updateBook('.$id.')" href="edit.php?id='.$id.'" >edit</a>
+                         
+                            <a class="btn p-2 btn-sm btn-rounded" onClick="checkDelete('.$id.')">
                                 Delete</a>
                         </td>
                     </tr>

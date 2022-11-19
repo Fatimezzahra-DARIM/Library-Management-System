@@ -115,16 +115,6 @@ include 'script.php';
                                 </label>
                                 <input id="file-upload" name="img" type="file">
                             </div>
-
-                            <!--  -->
-
-
-                            <!-- <div class="form-group">
-                                <label for="date" class="form-label ">Discription</label>
-                                <label for="exampleFormControlTextarea1"></label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                    name="description"></textarea>
-                            </div> -->
                             <div class="modal-footer">
 
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="reset">Close</button>
@@ -132,14 +122,12 @@ include 'script.php';
                             </div>
                         </form>
                     </div>
-
-
                 </div>
             </div>
         </div>
-
     </div>
-
+    
     <!-- JavaScript Bundle with Popper -->
+    <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
