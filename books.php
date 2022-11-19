@@ -1,5 +1,5 @@
 <?php
-    include 'script.php';
+include 'script.php';
 ?>
 
 <!DOCTYPE html>
@@ -33,10 +33,10 @@
 
         </div>
         <ul class="items">
-            <li><i class="bi  me-3 fs-4 bi-person-circle"></i><a href="profile.html" id="profile" class="profile">Profile</a></li>
-            <li><i class="bi me-3 fs-4 bi-grid-1x2-fill"></i><a href="dashboard.html" id="dashboard" class="profile">Dashboard</a></li>
-            <li><i class="bi me-3 fs-4 bi-book-fill"></i><a href="books.html" id="books" class="books">Books</a></li>
-            <li><i class="bi me-3 fs-4 bi-box-arrow-left"></i><a href="index.html" id="homepage" class="homepage">Log
+            <li><i class="bi  me-3 fs-4 bi-person-circle"></i><a href="profile.php" id="profile" class="profile">Profile</a></li>
+            <li><i class="bi me-3 fs-4 bi-grid-1x2-fill"></i><a href="dashboard.php" id="dashboard" class="profile">Dashboard</a></li>
+            <li><i class="bi me-3 fs-4 bi-book-fill"></i><a href="books.php" id="books" class="books">Books</a></li>
+            <li><i class="bi me-3 fs-4 bi-box-arrow-left"></i><a href="index.php" id="homepage" class="homepage">Log
                     Out</a></li>
         </ul>
 
@@ -75,91 +75,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt="" style="width: 45px; height: 45px" class="rounded" />
-                                <div class="ms-3">
-                                    <p class="fw-bold mb-1">#1</p>
-
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">Software engineer</p>
-
-                        </td>
-                        <td>
-                            Darim
-                        </td>
-
-                        <td>Senior</td>
-                        <!-- <td>Self dev</td> -->
-                        <td>
-                            <button type="button" class="btn p-2 btn-sm btn-rounded" data-mdb-ripple-color="dark">
-                                Edit
-                            </button>
-                            <button type="button" class="btn p-2 btn-sm btn-rounded">
-                                Delete
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <img src="https://mdbootstrap.com/img/new/avatars/6.jpg" class="rounded" alt="" style="width: 45px; height: 45px" />
-                                <div class="ms-3">
-                                    <p class="fw-bold mb-1">#2</p>
-
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">Consultant</p>
-
-                        </td>
-                        <td>
-                            fati
-                        </td>
-                        <td>Junior</td>
-                        <!-- <td>Self dev</td> -->
-                        <td>
-                            <button type="button" class="btn p-2 btn-sm btn-rounded" data-mdb-ripple-color="dark">
-                                Edit
-                            </button>
-                            <button type="button" class="btn p-2 btn-sm btn-rounded">
-                                Delete
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <img src="https://mdbootstrap.com/img/new/avatars/7.jpg" class="rounded" alt="" style="width: 45px; height: 45px" />
-                                <div class="ms-3">
-                                    <p class="fw-bold mb-1">#3</p>
-
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">Designer</p>
-                            <p class="text-muted mb-0">UI/UX</p>
-                        </td>
-                        <td>
-                            zahra
-                        </td>
-                        <td>Senior</td>
-                        <!-- <td>Self dev</td> -->
-                        <td>
-                            <button type="button" class="btn p-2 btn-sm btn-rounded" data-mdb-ripple-color="dark">
-                                Edit
-                            </button>
-                            <button type="button" class="btn p-2 btn-sm btn-rounded">
-                                Delete
-                            </button>
-                        </td>
-                    </tr>
+                    <?php 
+                    displayBook();
+                    ?>
                 </tbody>
             </table>
         </div>
@@ -196,7 +114,7 @@
                                 </label>
                                 <input id="file-upload" name="img" type="file">
                             </div>
-
+  
                             <!--  -->
 
 

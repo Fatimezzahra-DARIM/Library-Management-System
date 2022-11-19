@@ -46,7 +46,7 @@ if(isset($_POST['submit'])){
                            <h1><strong>Sign In</strong></h1>
                         </div>
                      </div>
-                     <form action="dashboard.html" method="post" name="login">
+                     <form action="dashboard.php" method="post" name="login">
                         <div class="form-group">
                            <label for="exampleInputEmail1">Email address:</label>
                            <input type="email" name="email" class="form-control" id="email" required aria-describedby="emailHelp" placeholder="">
@@ -62,7 +62,7 @@ if(isset($_POST['submit'])){
 
 
                         <div class="form-group">
-                           <p class="text-center">Need an account? <a href="SignUp.html" id="signup">Sign up here</a></p>
+                           <p class="text-center">Need an account? <a href="SignUp.php" id="signup">Sign up here</a></p>
                         </div>
                      </form>
 

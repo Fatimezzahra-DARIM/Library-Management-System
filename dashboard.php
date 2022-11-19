@@ -26,10 +26,10 @@
 
     </div>
     <ul class="items">
-        <li><i class="bi  me-3 fs-4 bi-person-circle"></i><a href="profile.html" id="profile" class="profile">Profile</a></li>
-        <li><i class="bi me-3 fs-4 bi-grid-1x2-fill"></i><a href="dashboard.html" id="dashboard" class="profile">Dashboard</a></li>
-        <li><i class="bi me-3 fs-4 bi-book-fill"></i><a href="books.html" id="books" class="books">Books</a></li>
-        <li><i class="bi me-3 fs-4 bi-box-arrow-left"></i><a href="index.html" id="homepage" class="homepage">Log Out</a></li>
+        <li><i class="bi  me-3 fs-4 bi-person-circle"></i><a href="profile.php" class="profile">Profile</a></li>
+        <li><i class="bi me-3 fs-4 bi-grid-1x2-fill"></i><a href="dashboard.php" id="dashboard" class="profile">Dashboard</a></li>
+        <li><i class="bi me-3 fs-4 bi-book-fill"></i><a href="books.php" id="books" class="books">Books</a></li>
+        <li><i class="bi me-3 fs-4 bi-box-arrow-left"></i><a href="index.php" id="homepage" class="homepage">Log Out</a></li>
     </ul> 
 
 </section>
