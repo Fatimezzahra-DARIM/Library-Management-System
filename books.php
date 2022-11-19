@@ -53,11 +53,12 @@ include 'script.php';
             <?php
             if (isset($_SESSION['bookAdded'])) {
             ?>
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success alert-dismissible fade show" >
                     <?php
                     echo $_SESSION['bookAdded'];
                     unset($_SESSION['bookAdded']);
                     ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 </div>
             <?php
             }
@@ -75,7 +76,7 @@ include 'script.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <?php 
+                    <?php
                     displayBook();
                     ?>
                 </tbody>
@@ -114,7 +115,7 @@ include 'script.php';
                                 </label>
                                 <input id="file-upload" name="img" type="file">
                             </div>
-  
+
                             <!--  -->
 
 
