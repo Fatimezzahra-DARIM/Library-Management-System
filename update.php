@@ -8,10 +8,20 @@ require "connex.php";
         $title=$_POST['updatetitle'];
         $updateAuthor=$_POST['updateAuthor'];
         $updatePublisherName=$_POST['updatePublisherName'];
-        $image = $_FILES['lastimage'];
-        $image = $_FILES['image']['name'];
-        $upload = "updateImages/" . $image;
+        $old_img=$_POST['old_img'];
+        // $image = $_FILES['lastimage'];
+        if(isset($_FILES['image']['name'])){
+             $image = $_FILES['image']['name'];
+             if($image!=""){
+        $upload = "Images/" . $image;
         move_uploaded_file($_FILES['image']['tmp_name'], $upload);
+           }else{
+            $image=$old_img;
+           }
+        }else{
+        $image = $old_img;
+        }
+       
         $req= "UPDATE `books` SET `bookTitle`='$title',`author`='$updateAuthor',`publisherName`='$updatePublisherName',`image`='$image' WHERE `bookId`='$id'";
         $res=mysqli_query($conn,$req);
         if($res){
