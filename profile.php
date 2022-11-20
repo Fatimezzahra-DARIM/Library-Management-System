@@ -1,16 +1,3 @@
-<?php
-global $conn;
-$id = $_GET['id'];
-$sql = "SELECT * FROM `admin` WHERE `adminId`='$id'";
-$result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_assoc($result);
-var_dump($row); ?>
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +6,7 @@ var_dump($row); ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -29,6 +17,12 @@ var_dump($row); ?>
 </head>
 
 <body class="row  p-0 m-0">
+    <!-- <header>
+        <div class="navbar col-2 d-flex flex-column justify-content-left">
+            <img id="navbarLogo" src="./Images/YouCode_Biblio-logo.png" alt="Logo de la page" height="200" width="200" >
+        </div>
+
+     </header> -->
     <section class="logonav col-2 bg-dark " style="height: auto ;" id="menu">
         <div class=" w-100 d-flex justify-content-center">
             <img class="w-75" id="navbarLogo" src="./Images/YouCode_Biblio-logo.png" alt="Logo de la page">
@@ -44,6 +38,8 @@ var_dump($row); ?>
     </section>
     <section class="col-10 ">
         <hr class=" ">
+        <!-- <div class="row">
+        <div class="col-sm-10"> -->
         <h1>User name</h1>
         </div>
 
@@ -56,7 +52,7 @@ var_dump($row); ?>
                 <input type="file" class="text-center center-block file-upload"> -->
                 </div>
                 </hr><br>
-                <form class="form" action="update.php?id=<?= $id ?>" method="POST" id="registrationForm">
+                <form class="form" action="##" method="post" id="registrationForm">
                     <div class="form-group">
 
                         <div class="col-xs-6">
