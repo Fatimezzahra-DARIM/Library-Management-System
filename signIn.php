@@ -1,18 +1,25 @@
 <?php
-include 'connex.php';
-session_start();
-if(isset($_POST['submit'])){
-   $email = htmlspecialchars(trim(strtolower($_POST['email']))) ;
-   $pass =$_POST['password'];
-   $query = "SELECT *FROM admin where email='$email' && password=$pass";
-   if(mysqli_num_rows(mysqli_query($conn,$query))>0){
-      $_SESSION['email']=$email;
-      header("location:dashboard.php");
-   }else{
-      echo"password is false";
-   }
-}
+// include 'connex.php';
+// session_start();
+// if(isset($_POST['submit'])){
+//    $email = htmlspecialchars(trim(strtolower($_POST['email']))) ;
+//    $pass =$_POST['password'];
+//    $qry = mysqli_query($conn, "SELECT *,count(*) as 'us' FROM admin where email='$email' && password='$pass'");
 
+//    $result = mysqli_fetch_assoc($qry);
+//    if($result['us']>0){
+//       // $_SESSION['email']=$email;
+//       var_dump($result);
+      
+//        $_SESSION['admin']=$result;
+
+//       //  $_SESSION['admin']['adminId'] = $result[''] ;
+//       header("location: dashboard.php");
+//    }else{
+//       echo"password is false";
+//    }
+// }
+   include('script.php');
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +53,7 @@ if(isset($_POST['submit'])){
                            <h1><strong>Sign In</strong></h1>
                         </div>
                      </div>
-                     <form action="dashboard.php" method="post" name="login">
+                     <form action="script.php" method="post" name="login">
                         <div class="form-group">
                            <label for="exampleInputEmail1">Email address:</label>
                            <input type="email" name="email" class="form-control" id="email" required aria-describedby="emailHelp" placeholder="">
@@ -57,7 +64,7 @@ if(isset($_POST['submit'])){
                         </div>
 
                         <div class="col-md-12 text-center ">
-                           <button type="submit" class=" btn btn-block mybtn tx-tfm "><strong>Submit</strong></button>
+                           <button type="submit" class=" btn btn-block mybtn tx-tfm" name="signIn"><strong>Submit</strong></button>
                         </div>
 
 

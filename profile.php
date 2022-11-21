@@ -1,4 +1,10 @@
-
+<?php
+session_start();
+if (isset($_SESSION['admin_id'])) {
+} else {
+    header("location:index.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +46,7 @@
         <hr class=" ">
         <!-- <div class="row">
         <div class="col-sm-10"> -->
-        <h1>User name</h1>
+        <h1><?php echo $_SESSION["admin_name"]; ?></h1>
         </div>
 
         </div>
@@ -52,14 +58,14 @@
                 <input type="file" class="text-center center-block file-upload"> -->
                 </div>
                 </hr><br>
-                <form class="form" action="##" method="post" id="registrationForm">
+                <form class="form" action="script.php" method="post" id="registrationForm">
                     <div class="form-group">
 
                         <div class="col-xs-6">
                             <label for="first_name">
                                 <h4>Full name</h4>
                             </label>
-                            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
+                            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any." value="<?php echo $_SESSION["admin_name"]; ?>">
                         </div>
                     </div>
 
@@ -70,7 +76,7 @@
                             <label for="phone">
                                 <h4>Phone Number</h4>
                             </label>
-                            <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
+                            <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any." value="<?php echo $_SESSION["admin_phone"]; ?>">
                         </div>
                     </div>
 
@@ -81,7 +87,7 @@
                             <label for="email">
                                 <h4>Email</h4>
                             </label>
-                            <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email." value="<?php echo $_SESSION["admin_email"]; ?>">
                         </div>
                     </div>
 
@@ -91,7 +97,7 @@
                             <label for="password">
                                 <h4>Password</h4>
                             </label>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
+                            <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password." value="" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -100,13 +106,13 @@
                             <label for="password2">
                                 <h4>Verify</h4>
                             </label>
-                            <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
+                            <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2." value="" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-12  text-center">
                             <br>
-                            <button class="btn btn-lg btn-success " type="submit"><i class="glyphicon glyphicon-ok-sign"></i>
+                            <button name="update" class="btn btn-lg btn-success " type="submit"><i class="glyphicon glyphicon-ok-sign"></i>
                                 Save update</button>
                             <!-- <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button> -->
                         </div>
