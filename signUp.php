@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
       </div>
    </header>
    <main class="col-lg-5 col-md-6 col-sm-7 col-10 px-5  p-2">
-      <form name="registration" id="form" method="post" action="signUp.php" data-parsley-validate>
+      <form name="registration" id="form" method="post" action="signIn.php" data-parsley-validate>
          <h3 class="logo w-50 m-auto text-center ">Sign Up</h3>
          <div class="form-group">
             <label for="exampleInputEmail1">Name:</label>

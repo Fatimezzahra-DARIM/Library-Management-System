@@ -20,7 +20,6 @@ if(isset($_POST['submit'])){
     $checkpassword= $_POST['checkPassword'];
     $select="SELECT * FROM admin WHERE Email='$email'";
     $result=mysqli_query($conn,$select);
-
 if (mysqli_num_rows($result) > 0) {
     $error[] = 'user already exist !!';
 } else {
@@ -29,10 +28,11 @@ if (mysqli_num_rows($result) > 0) {
     } else {
         $insert = "INSERT INTO `admin`(`adminName`, `phoneNumber`, `Email`, `PASSWORD`) VALUES ('$name','$phoneNumber','$email','$pass')";
         $query=mysqli_query($conn, $insert);
-        var_dump($insert);
-        if(!$query){
-            echo 'hiiii';
-        }
+            //header('location: signIn.php');
+        // var_dump($insert);
+        // if(!$query){
+        //     echo 'hiiii';
+        // }
     };
 };}
 
