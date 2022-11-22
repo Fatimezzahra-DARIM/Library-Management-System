@@ -43,12 +43,16 @@ function addBook(){
     $title = $_POST['title'];
     $author = $_POST['Author'];
     $publisherName = $_POST['PublisherName'];
+    if($_FILES['img']['name'] == "") {
+        $image
+        = "R.png";
+    }else{
     $image = $_FILES['img']['name'];
     $upload = "Images/" . $image;
 
     move_uploaded_file($_FILES['img']['tmp_name'], $upload);
     // print_r($_POST);
-
+     }
     $req = mysqli_query($conn, "INSERT INTO books VALUES (NULL,'$title','$author','$publisherName','$image',$id)");
 
     if ($req) {
@@ -95,8 +99,8 @@ function deleteBook()
 function displayBook()
 {
     include('connex.php');
-    $adminId = $_SESSION['admin_id'] ;
-    $query="SELECT * FROM `books` WHERE adminId = $adminId ORDER BY bookId DESC ";
+    //$query="SELECT * FROM `books` ORDER BY bookId DESC";
+    $query = "SELECT books.*, admin.adminName  FROM `books`, admin WHERE books.adminId = admin.adminId ORDER BY bookId DESC ";
     $result=mysqli_query($conn,$query);
     foreach ($result as $row) {
         $id = $row["bookId"];
@@ -104,6 +108,8 @@ function displayBook()
         $author = $row["author"];
         $publisherName = $row['publisherName'];
         $image = $row["image"];
+        $adminName = $row['adminName'];
+        $adminId = $row['adminId'];
         echo '
                     <tr>
                         <td>
@@ -114,6 +120,10 @@ function displayBook()
 
                                 </div>
                             </div>
+                
+                        </td>
+                        <td>
+                           ' . $adminName . '
                         </td>
                         <td>
                             <p class="fw-normal mb-1">' . $title . '</p>
@@ -123,17 +133,29 @@ function displayBook()
                            ' . $author . '
                         </td>
 
-                        <td>'. $publisherName . '</td>
+                        <td>'. $publisherName . '</td>';
+                       
+
+                        if ($_SESSION['admin_id'] == $adminId) {
+                            echo '
                         <td>
-                           
-                               <a class="btn p-2 btn-sm btn-rounded" onClick="updateBook('.$id.')" href="edit.php?id='.$id.'" >edit</a>
+                            <a class="btn p-2 btn-sm btn-rounded" onClick="updateBook('.$id.')" href="edit.php?id='.$id.'" >edit</a>
                          
                             <a class="btn p-2 btn-sm btn-rounded" onClick="checkDelete('.$id.')">
                                 Delete</a>
-                        </td>
-                    </tr>
-        
-        ';
+                        
+                       </td>
+                       ';
+                        }
+
+                        if ($_SESSION['admin_id'] != $adminId) {
+                            echo '
+                        <td>
+                            <a class="btn p-2 btn-sm btn-rounded">can\'t edit</a>
+                        
+                       </td>';
+                        }
+                        echo '</tr>';
     }
 }
 function countbooks()
@@ -141,7 +163,7 @@ function countbooks()
     global $conn;
     $adminId = $_SESSION['admin_id'];
     //SQL COUNTER  
-    $sql = "SELECT count(*) FROM books WHERE adminId = $adminId";
+    $sql = "SELECT count(*) FROM books";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
     echo  $row[0];

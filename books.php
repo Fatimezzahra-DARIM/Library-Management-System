@@ -44,7 +44,7 @@ if (!isset($_SESSION['admin_id'])) {
             <h3>List of Books</h3>
             <button type="button" class="btn p-2 rounded-4" data-bs-toggle="modal" data-bs-target="#exampleModal "><i class="bi bi-plus"></i> Add Book</button>
         </div>
-        <div >
+        <div>
 
             <?php
             if (isset($_SESSION['bookAdded'])) {
@@ -60,10 +60,11 @@ if (!isset($_SESSION['admin_id'])) {
             }
             ?>
 
-            <table class=" table table-responsive align-middle mb-0 bg-white text-center ">
+            <table class="table table-responsive align-middle bg-white text-center">
                 <thead class="bg-light">
                     <tr>
                         <th>BookId</th>
+                        <th>Admin</th>
                         <th>Title</th>
                         <th>Author</th>
                         <th>PublisherName</th>
@@ -72,55 +73,53 @@ if (!isset($_SESSION['admin_id'])) {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    displayBook();
-                    ?>
+                    <?php displayBook(); ?>
                 </tbody>
             </table>
         </div>
     </section>
     <!-- Modal -->
-  
-        <div class="modal fade" id="exampleModal" onclick="" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Book</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="book" name="book" enctype="multipart/form-data" action="script.php" method="POST">
-                            <div class="mb-3">
-                                <label for="title" class="form-label">Title</label>
-                                <input type="title" class="form-control" name="title" id="title-addBook">
-                            </div>
-                            <div class="mb-3">
-                                <label for="title" class="form-label">Author</label>
-                                <input type="title" class="form-control" name="Author">
-                            </div>
-                            <div class="mb-3">
-                                <label for="title" class="form-label">PublisherName</label>
-                                <input type="title" class="form-control" name="PublisherName">
-                            </div>
 
-                            <!-- select2 -->
-                            <div class="form-control mb-3">
-                                <label for="title" class="form-label">IMG</label>
-                                <label for="file-upload" class="custom-file-upload ">
+    <div class="modal fade" id="exampleModal" onclick="" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add Book</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="book" name="book" enctype="multipart/form-data" action="script.php" method="POST">
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="title" class="form-control" name="title" id="title-addBook">
+                        </div>
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Author</label>
+                            <input type="title" class="form-control" name="Author">
+                        </div>
+                        <div class="mb-3">
+                            <label for="title" class="form-label">PublisherName</label>
+                            <input type="title" class="form-control" name="PublisherName">
+                        </div>
 
-                                </label>
-                                <input id="file-upload" name="img" type="file">
-                            </div>
-                            <div class="modal-footer">
+                        <!-- select2 -->
+                        <div class="form-control mb-3">
+                            <label for="title" class="form-label">IMG</label>
+                            <label for="file-upload" class="custom-file-upload ">
 
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="reset">Close</button>
-                                <button type="submit" class="btn btn-primary" id="send" name="savebook">Save</button>
-                            </div>
-                        </form>
-                    </div>
+                            </label>
+                            <input id="file-upload" name="img" type="file">
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="reset">Close</button>
+                            <button type="submit" class="btn btn-primary" id="send" name="savebook">Save</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
 
 
     <!-- JavaScript Bundle with Popper -->

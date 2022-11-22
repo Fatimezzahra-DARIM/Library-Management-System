@@ -5,7 +5,7 @@ include 'script.php';
 if (!isset($_SESSION['admin_id'])) {
     // echo $_SESSION['admin_id'];
     header("location: index.php");
-}
+} 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,8 +43,8 @@ if (!isset($_SESSION['admin_id'])) {
         <div>
             <h3> Welcome back <?php echo $_SESSION["admin_name"]; ?> 👋 !!</h3>
         </div>
-        <div class="d-flex justify-content-around w-100 flex-wrap p-3">
-            <div class="card text-white bg-primary my-3 " style="max-width: 18rem;">
+        <div class="d-flex justify-content-around w-100 flex-wrap p-3 gap-3">
+            <div class="card text-white bg-primary" style="max-width: 18rem;">
 
                 <div class="card-header">
                     <h5>Number of books </h5>
@@ -53,7 +53,7 @@ if (!isset($_SESSION['admin_id'])) {
                     <h5 class="card-text text-center"><?php countbooks(); ?> </h5>
                 </div>
             </div>
-            <div class="card text-white bg-secondary my-3" style="max-width: 18rem;">
+            <div class="card text-white bg-secondary" style="max-width: 18rem;">
                 <div class="card-header">
                     <h5>Number of admins </h5>
                 </div>
