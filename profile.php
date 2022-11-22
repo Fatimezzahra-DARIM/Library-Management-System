@@ -1,8 +1,8 @@
 <?php
 session_start();
-if (isset($_SESSION['admin_id'])) {
-} else {
-    header("location:index.php");
+if (!isset($_SESSION['admin_id'])) {
+    // echo $_SESSION['admin_id'];
+    header("location: index.php");
 }
 ?>
 <!DOCTYPE html>
@@ -35,10 +35,10 @@ if (isset($_SESSION['admin_id'])) {
 
         </div>
         <ul class="items">
-            <li><i class="bi  me-3 fs-4 bi-person-circle"></i><a href="profile.php" id="profile" class="profile">Profile</a></li>
-            <li><i class="bi me-3 fs-4 bi-grid-1x2-fill"></i><a href="dashboard.php" id="dashboard" class="profile">Dashboard</a></li>
-            <li><i class="bi me-3 fs-4 bi-book-fill"></i><a href="books.php" id="books" class="books">Books</a></li>
-            <li><i class="bi me-3 fs-4 bi-box-arrow-left"></i><a href="index.php" id="homepage" class="homepage">Log Out</a></li>
+            <li><a href="profile.php" class="profile"><i class="bi  me-3 fs-4 bi-person-circle"></i><span class="sidText">Profile</span> </a></li>
+            <li><a href="dashboard.php" id="dashboard" class="profile"><i class="bi me-3 fs-4 bi-grid-1x2-fill"></i><span class="sidText">Dashboard</span></a></li>
+            <li><a href="books.php" id="books" class="books"><i class="bi me-3 fs-4 bi-book-fill"></i><span class="sidText">Books</span></a></li>
+            <li><a href="logOut.php" id="homepage" class="homepage"><i class="bi me-3 fs-4 bi-box-arrow-left"></i><span class="sidText">LogOut</span></a></li>
         </ul>
 
     </section>

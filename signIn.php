@@ -1,25 +1,5 @@
 <?php
-// include 'connex.php';
-// session_start();
-// if(isset($_POST['submit'])){
-//    $email = htmlspecialchars(trim(strtolower($_POST['email']))) ;
-//    $pass =$_POST['password'];
-//    $qry = mysqli_query($conn, "SELECT *,count(*) as 'us' FROM admin where email='$email' && password='$pass'");
-
-//    $result = mysqli_fetch_assoc($qry);
-//    if($result['us']>0){
-//       // $_SESSION['email']=$email;
-//       var_dump($result);
-      
-//        $_SESSION['admin']=$result;
-
-//       //  $_SESSION['admin']['adminId'] = $result[''] ;
-//       header("location: dashboard.php");
-//    }else{
-//       echo"password is false";
-//    }
-// }
-   include('script.php');
+include('script.php');
 ?>
 
 <!DOCTYPE html>
@@ -42,44 +22,30 @@
          <img id="navbarLogo" src="./Images/YouCode_Biblio-logo.png" alt="Logo de la page" height="200" width="200">
       </div>
    </header>
-   <main class="w-50">
-      <div class="container">
-         <div class="row">
-            <div class="col-md-5 mx-auto">
-               <div id="first">
-                  <div class="myform form ">
-                     <div class="logo ">
-                        <div class="col-md-12 text-center ">
-                           <h1><strong>Sign In</strong></h1>
-                        </div>
-                     </div>
-                     <form action="script.php" method="post" name="login">
-                        <div class="form-group">
-                           <label for="exampleInputEmail1">Email address:</label>
-                           <input type="email" name="email" class="form-control" id="email" required aria-describedby="emailHelp" placeholder="">
-                        </div>
-                        <div class="form-group">
-                           <label for="exampleInputEmail1">Password:</label>
-                           <input type="password" name="password" id="password" required  class="form-control" aria-describedby="emailHelp" placeholder="">
-                        </div>
-
-                        <div class="col-md-12 text-center ">
-                           <button type="submit" class=" btn btn-block mybtn tx-tfm" name="signIn"><strong>Submit</strong></button>
-                        </div>
-
-
-                        <div class="form-group">
-                           <p class="text-center">Need an account? <a href="SignUp.php" id="signup">Sign up here</a></p>
-                        </div>
-                     </form>
-
-                  </div>
-               </div>
-            </div>
+   <main class="col-lg-5 col-md-6 col-sm-7 col-10 px-5  p-2">
+      <?php if(isset($_SESSION['mssgLogin'])){ ?>
+      <div class="alert alert-danger text-center " role="alert">
+         <?= $_SESSION['mssgLogin']?>
+      </div>
+      <?php unset($_SESSION['mssgLogin']); } ?>
+      <form method="post" name="login" class="">
+         <h3 class="logo w-50 m-auto text-center ">Sign In</h3>
+         <div class="form-group">
+            <label for="exampleInputEmail1">Email address:</label>
+            <input type="email" name="email" class="form-control" id="email" required aria-describedby="emailHelp" placeholder="">
          </div>
-      </div>
-      </div>
+         <div class="form-group">
+            <label for="exampleInputEmail1">Password:</label>
+            <input type="password" name="password" id="password" required class="form-control" aria-describedby="emailHelp" placeholder="">
+         </div>
 
+         <div class="col-md-12 text-center ">
+            <button type="submit" class=" btn btn-block mybtn tx-tfm" name="signIn"><strong>Submit</strong></button>
+         </div>
+         <div class="form-group">
+            <p class="text-center">Need an account? <a href="SignUp.php" id="signup">Sign up here</a></p>
+         </div>
+      </form>
    </main>
 </body>
 

@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 .btn {
   background-color: #DCC18A; 
   border: none;
@@ -6,7 +9,6 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  
   font-weight: bold;
   border-radius: 20px;
 }
@@ -17,6 +19,7 @@
 body {
   background-image: linear-gradient(to right,#FFFFFF,#808080) ;
   opacity:inherit;
+  height: 100vh;
 }
 main{
 margin: auto;
@@ -24,7 +27,6 @@ display: block;
 background: rgba( 238, 207, 207, 0.2 );
 box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
 backdrop-filter: blur( 7.5px );
--webkit-backdrop-filter: blur( 7.5px );
 border-radius: 10px;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
@@ -32,13 +34,12 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
   background-color: #DCC18A; 
   border: none;
   color:#808080;
-  padding: 6px 80px;
-
+  padding: 0.3em 0 !important;
   text-decoration: none;
   
   font-weight: bold;
   border-radius: 20px;
-  margin-top: 5px;
+  /* margin-top: 5px; */
 }
 .form-control{
   border-radius: 10px;
@@ -72,6 +73,10 @@ a:hover{
 .cards{
   display: flex;
   flex-wrap:wrap;
-  
 }
 
+@media only screen and (max-width: 759px) {
+  .sidText {
+    display: none;
+  }
+}

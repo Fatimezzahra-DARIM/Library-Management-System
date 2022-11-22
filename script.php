@@ -12,9 +12,6 @@ if (isset($_POST['update'])) updateProfil();
 if (isset($_POST['signIn'])) signIn();
 
 
-
-
-
 if(isset($_POST['submit'])){
     $name= mysqli_real_escape_string($conn,$_POST['fName']);
     $phoneNumber = mysqli_real_escape_string($conn, $_POST['phoneNumber']);
@@ -25,7 +22,7 @@ if(isset($_POST['submit'])){
     $result=mysqli_query($conn,$select);
 
 if (mysqli_num_rows($result) > 0) {
-    $error[] = 'user already exist !! ';
+    $error[] = 'user already exist !!';
 } else {
     if ($pass != $checkpassword) {
         $error[] = 'password not matched !!';
@@ -42,15 +39,17 @@ if (mysqli_num_rows($result) > 0) {
 function addBook(){
     global $conn;
 
+    $id = $_SESSION['admin_id'] ;
     $title = $_POST['title'];
     $author = $_POST['Author'];
     $publisherName = $_POST['PublisherName'];
     $image = $_FILES['img']['name'];
     $upload = "Images/" . $image;
+
     move_uploaded_file($_FILES['img']['tmp_name'], $upload);
     // print_r($_POST);
 
-    $req = mysqli_query($conn, "INSERT INTO books VALUES (NULL,'$title','$author','$publisherName','$image')");
+    $req = mysqli_query($conn, "INSERT INTO books VALUES (NULL,'$title','$author','$publisherName','$image',$id)");
 
     if ($req) {
         $_SESSION['bookAdded'] = 'your book has been added successfully';
@@ -77,8 +76,6 @@ function updateBook(){
             echo "<br>Error updating record: " . mysqli_error($conn);
 
         }
-        //echo "end" ;
-
     }
 }
 function deleteBook()
@@ -98,8 +95,8 @@ function deleteBook()
 function displayBook()
 {
     include('connex.php');
-
-    $query="SELECT * FROM `books` ORDER BY bookId DESC ";
+    $adminId = $_SESSION['admin_id'] ;
+    $query="SELECT * FROM `books` WHERE adminId = $adminId ORDER BY bookId DESC ";
     $result=mysqli_query($conn,$query);
     foreach ($result as $row) {
         $id = $row["bookId"];
@@ -108,7 +105,6 @@ function displayBook()
         $publisherName = $row['publisherName'];
         $image = $row["image"];
         echo '
-           
                     <tr>
                         <td>
                             <div class="d-flex align-items-center">
@@ -143,8 +139,9 @@ function displayBook()
 function countbooks()
 {
     global $conn;
-    //SQL COUNTER OF 
-    $sql = "SELECT count(*) FROM books";
+    $adminId = $_SESSION['admin_id'];
+    //SQL COUNTER  
+    $sql = "SELECT count(*) FROM books WHERE adminId = $adminId";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
     echo  $row[0];
@@ -152,7 +149,7 @@ function countbooks()
 function countadmins()
 {
     global $conn;
-    //SQL COUNTER OF 
+    //SQL COUNTER
     $sql = "SELECT count(*) FROM admin";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
@@ -181,7 +178,8 @@ function signIn()
         //  $_SESSION['admin']['adminId'] = $result[''] ;
         header("location: dashboard.php");
     } else {
-        echo "password is false";
+        // die("password is false");
+        $_SESSION['mssgLogin'] = 'check password or email !!';
     }
 }
 function updateProfil(){

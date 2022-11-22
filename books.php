@@ -1,5 +1,9 @@
 <?php
 include 'script.php';
+if (!isset($_SESSION['admin_id'])) {
+    // echo $_SESSION['admin_id'];
+    header("location: index.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -19,18 +23,17 @@ include 'script.php';
 </head>
 
 <body class="row p-0 m-0 ">
-    
+
     <section class="logonav  bg-dark col-2 h-auto" id="menu">
         <div class=" w-100 d-flex justify-content-center">
             <img class="w-75" id="navbarLogo" src="./Images/YouCode_Biblio-logo.png" alt="Logo de la page">
 
         </div>
         <ul class="items">
-            <li><i class="bi  me-3 fs-4 bi-person-circle"></i><a href="profile.php" id="profile" class="profile">Profile</a></li>
-            <li><i class="bi me-3 fs-4 bi-grid-1x2-fill"></i><a href="dashboard.php" id="dashboard" class="profile">Dashboard</a></li>
-            <li><i class="bi me-3 fs-4 bi-book-fill"></i><a href="books.php" id="books" class="books">Books</a></li>
-            <li><i class="bi me-3 fs-4 bi-box-arrow-left"></i><a href="index.php" id="homepage" class="homepage">Log
-                    Out</a></li>
+            <li><a href="profile.php" class="profile"><i class="bi  me-3 fs-4 bi-person-circle"></i><span class="sidText">Profile</span> </a></li>
+            <li><a href="dashboard.php" id="dashboard" class="profile"><i class="bi me-3 fs-4 bi-grid-1x2-fill"></i><span class="sidText">Dashboard</span></a></li>
+            <li><a href="books.php" id="books" class="books"><i class="bi me-3 fs-4 bi-book-fill"></i><span class="sidText">Books</span></a></li>
+            <li><a href="logOut.php" id="homepage" class="homepage"><i class="bi me-3 fs-4 bi-box-arrow-left"></i><span class="sidText">LogOut</span></a></li>
         </ul>
 
 
@@ -41,12 +44,12 @@ include 'script.php';
             <h3>List of Books</h3>
             <button type="button" class="btn p-2 rounded-4" data-bs-toggle="modal" data-bs-target="#exampleModal "><i class="bi bi-plus"></i> Add Book</button>
         </div>
-        <div>
+        <div >
 
             <?php
             if (isset($_SESSION['bookAdded'])) {
             ?>
-                <div class="alert alert-success alert-dismissible fade show" >
+                <div class="alert alert-success alert-dismissible fade show">
                     <?php
                     echo $_SESSION['bookAdded'];
                     unset($_SESSION['bookAdded']);
@@ -57,7 +60,7 @@ include 'script.php';
             }
             ?>
 
-            <table class=" table align-middle mb-0 bg-white text-center ">
+            <table class=" table table-responsive align-middle mb-0 bg-white text-center ">
                 <thead class="bg-light">
                     <tr>
                         <th>BookId</th>
@@ -69,7 +72,7 @@ include 'script.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <?php      
+                    <?php
                     displayBook();
                     ?>
                 </tbody>
@@ -77,7 +80,7 @@ include 'script.php';
         </div>
     </section>
     <!-- Modal -->
-    <div id="addBook">
+  
         <div class="modal fade" id="exampleModal" onclick="" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -118,8 +121,8 @@ include 'script.php';
                 </div>
             </div>
         </div>
-    </div>
-    
+
+
     <!-- JavaScript Bundle with Popper -->
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
