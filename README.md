@@ -1,7 +1,7 @@
 # Library-Management-System
-***About***
-Youcode school needs a library management system to maintain all the daily work of the library.  
-**Context of the project**  
+***About***  
+Youcode school needs a library management system to maintain all the daily work of the library.    
+**Context of the project**    
 The Youcode library management application has several parts,   
 I developed the Admin part which contains the following backlog:    
 🔹As admin I can register and log in    
